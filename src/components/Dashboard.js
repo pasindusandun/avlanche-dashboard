@@ -16,7 +16,7 @@ function Dashboard() {
   return (
     <Box>
       <Appbar/>
-      <Stack spacing={2} direction={'column'} 
+      <Stack spacing={1} direction={'column'} 
     marginLeft={{ xs: open ? `${drawerWidthsm}px` : 0, sm: open ? `${drawerWidth}px` : 0, md: open ? `${drawerWidth}px` : 0 }}
     >
        <Detailcard/>

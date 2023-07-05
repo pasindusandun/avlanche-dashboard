@@ -40,13 +40,21 @@ function Chart() {
         plugins: {
             legend: false
         },
+        scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 30, // Customize the gap between values
+              },
+            },
+          },
     }
     const handleChange = (e) => {
         setChartFilter(e.target.value);
     }
     return (
-        <Grid container spacing={2} alignItems="stretch">
-            <Grid item xs={12} sm={12} md={9} alignItems="stretch">
+        <Grid container spacing={2} alignItems="stretch" height={'50px'}columnGap={4}>
+            <Grid item xs={12} sm={12} md={8.5} alignItems="stretch"  >
                 <Card sx={{ padding: 2 }} >
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center',flexDirection:{xs:'column',sm:'column',md:'row'} }} gap={{xs:2,sm:2,md:3}} >
                         <Box alignItems={'center'} >
@@ -98,10 +106,12 @@ function Chart() {
 
 
                     </Box>
-                    <Box  sx={{ width: '`100%' }} marginTop={5}>
+                    <Box  sx={{ width: '100%' }} marginTop={1} >
                         <Line
                             data={data}
                             options={options}
+                            width={'100%'}
+                            height={'30px'}
                         >
 
                         </Line>

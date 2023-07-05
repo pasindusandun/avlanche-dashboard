@@ -6,7 +6,7 @@ import RadialSeparator from './RadialSeparator';
 
 function Circularprogrebar() {
   return (
-    <Grid item xs={12} sm={12} md={3} alignItems="stretch" >
+    <Grid item xs={8} sm={6} md={2} alignItems="stretch"  >
       <Card sx={{ padding: 2 }}>
       <Typography variant='h1' fontSize={25} textAlign={'start'} marginBottom={3}>Workout Progress</Typography>
         <CircularProgressbarWithChildren
