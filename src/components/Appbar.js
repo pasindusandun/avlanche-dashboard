@@ -149,12 +149,18 @@ function Appbar() {
                     vertical: 'top',
                     horizontal: 'right',
                 }}
+                // hidden={{xs:false,sm:true}}
+                sx={{
+                    display:{xs: 'flex',sm:'none'}
+                }}
             >
+                <LightTooltip title={<Tooltips />} >
                 <IconButton size="large" color="inherit">
                     <Badge badgeContent={12} color="secondary">
                         <NotificationsOutlined />
                     </Badge>
                 </IconButton>
+                </LightTooltip>
                 <IconButton
                     size="large"
                     color="inherit"
