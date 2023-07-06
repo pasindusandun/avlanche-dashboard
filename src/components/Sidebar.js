@@ -9,6 +9,7 @@ function Sidebar({ drawerWidthsm, drawerWidth, open }) {
     const StyleTreeItem = styled(TreeItem)({
         padding:10,    
         alignItems:'center',
+        
     })
     const StyleTreeNodeItem = styled(TreeItem)({
         padding:10,    
