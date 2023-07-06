@@ -1,11 +1,17 @@
-import { ChevronRight, Dashboard, ExpandMore, MonitorHeartTwoTone,Layers,Language ,FavoriteBorder, Computer, StorageOutlined, LaptopOutlined, SettingsOutlined} from '@mui/icons-material'
-import { Divider, Drawer, Fab, IconButton, List, Typography, styled } from '@mui/material'
+import { ChevronRight, Dashboard, ExpandMore, MonitorHeartTwoTone,Layers,Language ,FavoriteBorder, Computer, StorageOutlined, LaptopOutlined, SettingsOutlined, ExpandMoreOutlined} from '@mui/icons-material'
+import { Accordion, AccordionDetails, AccordionSummary, Divider, Drawer, Fab, IconButton, List, Typography, styled } from '@mui/material'
 import TreeItem from '@mui/lab/TreeItem';
 import TreeView from '@mui/lab/TreeView';
 import React, { useState } from 'react'
 
 
 function Sidebar({ drawerWidthsm, drawerWidth, open }) {
+    // const StyleTypo = styled(Typography)({
+    //      textAlign:'start',
+    //      marginBottom:10,
+    //      paddingLeft:30,
+    //      color:'GrayText'
+    // })
     const StyleTreeItem = styled(TreeItem)({
         padding:10,    
         alignItems:'center',
@@ -73,40 +79,72 @@ function Sidebar({ drawerWidthsm, drawerWidth, open }) {
             >
               
                 <StyleTreeItem nodeId="1" label="Dashboard" icon={<Dashboard/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("1")?'#6CC51D':'GrayText'}} > 
-                    <StyleTreeNodeItem nodeId="20" label="Dashboard" />
-                    <StyleTreeNodeItem nodeId="21" label="Workout Statistic" />
-                    <StyleTreeNodeItem nodeId="22" label="Workout Plan " />
-                    <StyleTreeNodeItem nodeId="23" label="Distance Map" />
-                    <StyleTreeNodeItem nodeId="24" label="Diet Food Menu" />
-                    <StyleTreeNodeItem nodeId="25" label="Personal Record" />
+                    <StyleTreeNodeItem nodeId="2" label="Dashboard" />
+                    <StyleTreeNodeItem nodeId="3" label="Workout Statistic" />
+                    <StyleTreeNodeItem nodeId="4" label="Workout Plan " />
+                    <StyleTreeNodeItem nodeId="5" label="Distance Map" />
+                    <StyleTreeNodeItem nodeId="6" label="Diet Food Menu" />
+                    <StyleTreeNodeItem nodeId="7" label="Personal Record" />
                 </StyleTreeItem>
             
-                <StyleTreeItem nodeId="3" label="Apps" icon={<LaptopOutlined/>} sx={{color:expanded.includes("3")?'#6CC51D':'GrayText'}} >
-                    <StyleTreeNodeItem nodeId="4" label="OSS" />
+                <StyleTreeItem nodeId="8" label="Apps" icon={<LaptopOutlined/>} sx={{color:expanded.includes("8")?'#6CC51D':'GrayText'}} >
+                    <StyleTreeNodeItem nodeId="9" label="OSS" />
                 </StyleTreeItem>
-                <StyleTreeItem  nodeId="5" label="Charts" icon={<StorageOutlined/>} expandIcon={<ExpandMore/>}  sx={{color:expanded.includes("5")?'#6CC51D':'GrayText'}}>
-                    <StyleTreeNodeItem nodeId="6" label="Calendar" />
+                <StyleTreeItem  nodeId="10" label="Charts" icon={<StorageOutlined/>} expandIcon={<ExpandMore/>}  sx={{color:expanded.includes("10")?'#6CC51D':'GrayText'}}>
+                    <StyleTreeNodeItem nodeId="11" label="Calendar" />
                 </StyleTreeItem>
-                <StyleTreeItem nodeId="7" label="Bootstrap" icon={<Language/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("7")?'#6CC51D':'GrayText'}}>
-                    <StyleTreeNodeItem nodeId="8" label="Calendar" />
+                <StyleTreeItem nodeId="12" label="Bootstrap" icon={<Language/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("12")?'#6CC51D':'GrayText'}}>
+                    <StyleTreeNodeItem nodeId="13" label="Calendar" />
                 </StyleTreeItem>
-                <StyleTreeItem nodeId="9" label="Plugins" icon={<FavoriteBorder/>} expandIcon={<ExpandMore/> }sx={{color:expanded.includes("9")?'#6CC51D':'GrayText'}}>
-                    <StyleTreeNodeItem nodeId="10" label="Calendar" />
+                <StyleTreeItem nodeId="14" label="Plugins" icon={<FavoriteBorder/>} expandIcon={<ExpandMore/> }sx={{color:expanded.includes("14")?'#6CC51D':'GrayText'}}>
+                    <StyleTreeNodeItem nodeId="15" label="Calendar" />
                 </StyleTreeItem>
-                <StyleTreeItem nodeId="11" label="Widget" icon={<SettingsOutlined/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("11")?'#6CC51D':'GrayText'}}>
-                    <StyleTreeNodeItem nodeId="12" label="Calendar" />
+                <StyleTreeItem nodeId="16" label="Widget" icon={<SettingsOutlined/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("16")?'#6CC51D':'GrayText'}}>
+                    <StyleTreeNodeItem nodeId="17" label="Calendar" />
                 </StyleTreeItem>
-                <StyleTreeItem nodeId="13" label="Form" icon={<SettingsOutlined/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("13")?'#6CC51D':'GrayText'}}>
-                    <StyleTreeNodeItem nodeId="14" label="Calendar" />
+                <StyleTreeItem nodeId="18" label="Form" icon={<SettingsOutlined/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("18")?'#6CC51D':'GrayText'}}>
+                    <StyleTreeNodeItem nodeId="19" label="Calendar" />
                 </StyleTreeItem>
-                <StyleTreeItem nodeId="15" label="Table" icon={<SettingsOutlined/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("15")?'#6CC51D':'GrayText'}}>
-                    <StyleTreeNodeItem nodeId="16" label="Calendar" />
+                <StyleTreeItem nodeId="20" label="Table" icon={<SettingsOutlined/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("20")?'#6CC51D':'GrayText'}}>
+                    <StyleTreeNodeItem nodeId="21" label="Calendar" />
                 </StyleTreeItem>
-                <StyleTreeItem  nodeId="17" label="Pages" icon={<Layers/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("17")?'#6CC51D':'GrayText'}}>
-                    <StyleTreeNodeItem nodeId="18" label="Calendar" />
+                <StyleTreeItem  nodeId="22" label="Pages" icon={<Layers/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("22")?'#6CC51D':'GrayText'}}>
+                    <StyleTreeNodeItem nodeId="23" label="Calendar" />
                 </StyleTreeItem>
             </TreeView>
             
+             {/* <Accordion sx={{border:'none',borderStyle:'hidden'}}>
+        <AccordionSummary
+          expandIcon={<ExpandMoreOutlined />}
+        //   aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography ><Dashboard sx={{marginRight:1}}/>Dashboard</Typography>
+        </AccordionSummary>
+        <AccordionDetails sx={{paddingTop:0}}>
+        <StyleTypo>
+        Dashboard
+          </StyleTypo>
+          <StyleTypo >
+          Workout Statistic
+          </StyleTypo>
+          <StyleTypo>
+          Workout Plan
+          </StyleTypo>
+          <StyleTypo>
+          Distance Map
+          </StyleTypo>
+          <StyleTypo>
+          Diet Food Menu
+          </StyleTypo>
+          <StyleTypo>
+          Workout Plan
+          </StyleTypo>
+          <StyleTypo>
+        Personal Record
+          </StyleTypo>
+        </AccordionDetails>
+      </Accordion> */}
             <Divider />
         </Drawer>
     )
