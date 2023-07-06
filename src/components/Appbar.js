@@ -1,13 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { AppBar, Avatar, Badge, Box, Divider, Drawer, IconButton, InputBase, MenuItem, Toolbar, Typography, styled, Menu } from '@mui/material'
-import { CardGiftcard, GifTwoTone, Menu as MenuIcon, Message, Notifications, Search as SearchIcon, MonitorHeartTwoTone, More } from '@mui/icons-material'
+import { CardGiftcard, GifTwoToneOutlined, Menu as MenuIcon, MessageOutlined, NotificationsOutlined, Search as SearchIcon, MonitorHeartTwoTone, More, CardGiftcardOutlined } from '@mui/icons-material'
 import { alpha } from '@mui/material/styles';
 import Sidebar from './Sidebar';
+import Tooltips from './Tooltip';
+import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import { useSelector,useDispatch} from 'react-redux'
 import { updateOpen } from '../redux/HealthDetailsStore';
 const drawerWidth = 220;
 const drawerWidthsm = 120;
 function Appbar() {
+
+    const LightTooltip = styled(({ className, ...props }) => (
+        <Tooltip {...props} classes={{ popper: className }} />
+      ))(({ theme }) => ({
+        [`& .${tooltipClasses.tooltip}`]: {
+          backgroundColor: theme.palette.common.white,
+          color: 'rgba(0, 0, 0, 0.87)',
+          boxShadow: theme.shadows[1],
+          fontSize: 11,
+        },
+      }));
    
     const Search = styled('div')(({ theme }) => ({
         position: 'relative',
@@ -63,7 +76,7 @@ function Appbar() {
         >
             <AppBar position="static" open={open}
             >
-                <Toolbar   >
+                <Toolbar>
                     <IconButton
                         size="large"
                         edge="start"
@@ -92,17 +105,19 @@ function Appbar() {
                     </Box>
 
                     <Box sx={{ display: { xs: 'none', sm: 'flex' } }}   >
+                    <LightTooltip title={<Tooltips />} >
                         <IconButton size="large" color="inherit">
                             <Badge badgeContent={12} color="secondary">
-                                <Notifications />
+                                <NotificationsOutlined /> 
                             </Badge>
                         </IconButton>
+                        </LightTooltip>
                         <IconButton
                             size="large"
                             color="inherit"
                         >
                             <Badge badgeContent={5} color="secondary">
-                                <Message />
+                                <MessageOutlined />
                             </Badge>
                         </IconButton>
                         <IconButton
@@ -110,7 +125,7 @@ function Appbar() {
                             color="inherit"
                         >
                             <Badge badgeContent={2} color='secondary' >
-                                <CardGiftcard />
+                                <CardGiftcardOutlined />
                             </Badge>
 
                         </IconButton>
@@ -137,7 +152,7 @@ function Appbar() {
             >
                 <IconButton size="large" color="inherit">
                     <Badge badgeContent={12} color="secondary">
-                        <Notifications />
+                        <NotificationsOutlined />
                     </Badge>
                 </IconButton>
                 <IconButton
@@ -145,7 +160,7 @@ function Appbar() {
                     color="inherit"
                 >
                     <Badge badgeContent={5} color="secondary">
-                        <Message />
+                        <MessageOutlined />
                     </Badge>
                 </IconButton>
                 <IconButton
@@ -153,7 +168,7 @@ function Appbar() {
                     color="inherit"
                 >
                     <Badge badgeContent={2} color='secondary' >
-                        <CardGiftcard />
+                        <CardGiftcardOutlined />
                     </Badge>
 
                 </IconButton>
