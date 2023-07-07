@@ -1,6 +1,7 @@
 import { Box, Card, Typography } from '@mui/material'
 import React from 'react'
-import { AppsOutlined, ViewCompact, FitnessCenter } from '@mui/icons-material';
+import { AppsOutlined, ViewCompact, FitnessCenter,ArrowRight } from '@mui/icons-material';
+
 
 function AdCard() {
     return (
@@ -12,11 +13,14 @@ function AdCard() {
             <Typography color={'white'} sx={{ marginLeft: 1.5 }} width={'60%'} fontSize={13} >
                 Start Plan Your Workout
             </Typography>
-            <Box display={'flex'} justifyContent={'space-between'}>
-                <Typography color={'white'} fontSize={13} sx={{ marginTop: 2, marginLeft: 1.5,alignItems:"flex-start", }} >
+            <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'}>
+                <Typography color={'white'} fontSize={13} 
+                sx={{  marginLeft: 1.5,}}
+                 >
                     Check schedule
                 </Typography>
-                <ViewCompact color='primary'/>
+                <ArrowRight color='primary'/>
+                <ViewCompact color='primary' sx={{marginRight:1}}/>
             </Box>
 
         </Card>
