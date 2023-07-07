@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { AppBar, Avatar, Badge, Box, Divider, Drawer, IconButton, InputBase, MenuItem, Toolbar, Typography, styled, Menu } from '@mui/material'
-import { CardGiftcard, GifTwoToneOutlined, Menu as MenuIcon, MessageOutlined, NotificationsOutlined, Search as SearchIcon, MonitorHeartTwoTone, More, CardGiftcardOutlined } from '@mui/icons-material'
+import { AppBar, Avatar, Badge, Box,  IconButton, InputBase,  Toolbar, Typography, styled, Menu } from '@mui/material'
+import {  Menu as MenuIcon, MessageOutlined, NotificationsOutlined, Search as SearchIcon,  CardGiftcardOutlined } from '@mui/icons-material'
 import { alpha } from '@mui/material/styles';
 import Sidebar from './Sidebar';
 import Tooltips from './Tooltip';
@@ -52,7 +52,6 @@ function Appbar() {
         color: 'inherit',
         '& .MuiInputBase-input': {
             padding: theme.spacing(1, 1, 1, 0),
-            // vertical padding + font size from searchIcon
             paddingLeft: `calc(1em + ${theme.spacing(4)})`,
             transition: theme.transitions.create('width'),
             width: '100%',
@@ -149,7 +148,6 @@ function Appbar() {
                     vertical: 'top',
                     horizontal: 'right',
                 }}
-                // hidden={{xs:false,sm:true}}
                 sx={{
                     display:{xs: 'flex',sm:'none'}
                 }}

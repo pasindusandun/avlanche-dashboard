@@ -1,10 +1,17 @@
 import { Box, Button, Card, Grid, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CircularProgressbarWithChildren,buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import RadialSeparator from './RadialSeparator';
+import { useSelector } from 'react-redux';
 
 function Circularprogrebar() {
+  const workoutProgressRedu= useSelector(state=>state.HealthStore.workoutProgress);
+  const [workoutProgress, setWorkoutProgress] = useState(0)
+  useEffect(() => {
+    setWorkoutProgress(workoutProgressRedu)
+  }, [workoutProgressRedu])
+  
   return (
     <Grid item xs={8} sm={6} md={2} alignItems="stretch"  >
       <Card sx={{ padding: 2 }}>
@@ -12,7 +19,7 @@ function Circularprogrebar() {
         <CircularProgressbarWithChildren
        
         value={81}
-        text={`${81}%`}
+        text={`${workoutProgress}%`}
         strokeWidth={10}
         circleRatio={0.75}
         styles={buildStyles({
