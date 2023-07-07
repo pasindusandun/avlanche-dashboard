@@ -11,6 +11,16 @@ const drawerWidth = 220;
 const drawerWidthsm = 120;
 function Appbar() {
 
+    const StyledBadge = styled(Badge)(({ theme }) => ({
+        '& .MuiBadge-badge': {
+          right: 3,
+          top: 19,
+        //   border: `2px solid ${theme.palette.primary.main}`,
+          color:'#FFFFFF',
+          padding: '4px 4px',
+        },
+      }));
+
     const LightTooltip = styled(({ className, ...props }) => (
         <Tooltip {...props} classes={{ popper: className }} />
       ))(({ theme }) => ({
@@ -105,31 +115,32 @@ function Appbar() {
 
                     <Box sx={{ display: { xs: 'none', sm: 'flex' } }}   >
                     <LightTooltip title={<Tooltips />} >
-                        <IconButton size="large" color="inherit">
-                            <Badge badgeContent={12} color="secondary">
+                        <StyledBadge badgeContent={12} color="secondary">
+                        <IconButton size="large" color="inherit" sx={{borderRadius:3,backgroundColor:'ButtonHighlight',marginTop:2,marginBottom:2}}  >
                                 <NotificationsOutlined /> 
-                            </Badge>
                         </IconButton>
+                        </StyledBadge>
                         </LightTooltip>
+                        <StyledBadge badgeContent={5} color="secondary">
                         <IconButton
                             size="large"
                             color="inherit"
+                            sx={{borderRadius:3,backgroundColor:'ButtonHighlight',marginTop:2,marginBottom:2,marginLeft:1}}
                         >
-                            <Badge badgeContent={5} color="secondary">
-                                <MessageOutlined />
-                            </Badge>
+                                <MessageOutlined /> 
                         </IconButton>
+                        </StyledBadge>
+                        <StyledBadge badgeContent={2} color='secondary' >
                         <IconButton
                             size="large"
                             color="inherit"
+                            sx={{borderRadius:3,backgroundColor:'ButtonHighlight',marginTop:2,marginBottom:2,marginLeft:1}}
                         >
-                            <Badge badgeContent={2} color='secondary' >
-                                <CardGiftcardOutlined />
-                            </Badge>
-
+                                <CardGiftcardOutlined/>
                         </IconButton>
+                        </StyledBadge>
                         <IconButton size="large"  >
-                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" variant='square' sx={{borderRadius:3}} />
                         </IconButton>
                     </Box>
                     <Box sx={{ display: { xs: 'flex', sm: 'none' } }} >
