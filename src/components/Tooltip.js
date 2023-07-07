@@ -14,7 +14,6 @@ function Tooltip() {
 //  }]);
   return (
     <Box sx={{backgroundColor:'white'}} padding={0} margin={0}>
-      {/* <Card sx={{width:250}}> */}
         <Timeline sx={{
         [`& .${timelineItemClasses.root}:before`]: {
           flex: 0,
@@ -67,7 +66,6 @@ function Tooltip() {
           </TimelineItem>
 
         </Timeline>
-      {/* </Card> */}
     </Box>
   )
 }

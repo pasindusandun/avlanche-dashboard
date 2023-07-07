@@ -6,8 +6,11 @@ import Businesshours from './Businesshours';
 import Addacounts from './Addacounts';
 import { useNavigate } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../../redux/UserDetailsStore';
 
 function Userdetailsform() {
+    const dispatch=useDispatch();
     const navigator = useNavigate();
     const customPageTheme = createTheme({
         palette: {
@@ -51,6 +54,7 @@ function Userdetailsform() {
         e.preventDefault();
         setIsSubmited(activeStep)
         if (activeStep == 3) {
+            dispatch(addUser(formData))
             navigator('/dashboard');
         }
         else {

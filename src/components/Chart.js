@@ -1,9 +1,10 @@
 import { Box, Card, Grid, InputLabel, MenuItem, Select, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Line } from "react-chartjs-2";
 import { DirectionsRun, SelfImprovement, DirectionsBike } from '@mui/icons-material';
 import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Legend } from "chart.js";
 import Circularprogrebar from '../components/Circularprogrebar';
+import { useSelector } from 'react-redux';
 
 
 ChartJS.register(
@@ -11,25 +12,44 @@ ChartJS.register(
 )
 
 function Chart() {
+    const chartRedDeti =useSelector((state)=>state.HealthStore.chartDetails);
+    const [ChartDetils, setChartDetils] = useState({
+        runing:{
+            data:[],
+            prec:0,
+
+        },
+        cycling:{
+            data:[],
+            prec:0,
+        },
+        yoga:{
+            data:[],
+            prec:0,
+        }
+    })
     const [chartFilter, setChartFilter] = useState(1)
     const data = {
         labels: ['Jan', 'Feb', 'Mar', 'Apr','May','jun','Aug','Sep','Oct','Nov','Dec'],
         datasets: [{
             label: 'My First Dataset',
-            data: [65, 59, 80, 81,12, 36, 68, 120,12, 36, 68, 120],
+            // data: [65, 59, 80, 81,12, 36, 68, 120,12, 36, 68, 120],
+            data: ChartDetils.runing.data,
             fill: false,
             borderColor: '#fc9434',
             backgroundColor: '#fc9434',
             pointBackgroundColor: '#ffffff'
         }, {
             label: 'My First Dataset',
-            data: [35, 63, 110, 76,65, 59, 80, 81,12, 36, 68, 120],
+            // data: [35, 63, 110, 76,65, 59, 80, 81,12, 36, 68, 120],
+            data: ChartDetils.cycling.data,
             fill: false,
             borderColor: '#1ca4c4',
             backgroundColor: '#1ca4c4',
         }, {
             label: 'My First Dataset',
-            data: [12, 36, 68, 120,35, 63, 110, 76,65, 59, 80, 81],
+            // data: [12, 36, 68, 120,35, 63, 110, 76,65, 59, 80, 81],
+            data: ChartDetils.yoga.data,
             fill: false,
             borderColor: '#c844d4',
             backgroundColor: '#c844d4',
@@ -44,7 +64,7 @@ function Chart() {
             y: {
               beginAtZero: true,
               ticks: {
-                stepSize: 30, // Customize the gap between values
+                stepSize: 30, 
               },
             },
           },
@@ -52,6 +72,10 @@ function Chart() {
     const handleChange = (e) => {
         setChartFilter(e.target.value);
     }
+    useEffect(() => {
+      setChartDetils(chartRedDeti);
+    }, [chartRedDeti])
+    
     return (
         <Grid container spacing={2} alignItems="stretch" height={'50px'}columnGap={4}>
             <Grid item xs={12} sm={12} md={8.5} alignItems="stretch"  >
@@ -66,7 +90,7 @@ function Chart() {
                                 <DirectionsRun sx={{ color: '#fc9434' }} fontSize='large' />
                             </Box>
                             <Box>
-                                <Typography variant='h6' fontSize={20}>45%</Typography>
+                                <Typography variant='h6' fontSize={20}>{ChartDetils.runing.prec +"%"}</Typography>
                                 <Typography>Running</Typography>
                             </Box>
                         </Box>
@@ -75,7 +99,7 @@ function Chart() {
                                 <DirectionsBike sx={{ color: '#1ca4c4' }} fontSize='large' />
                             </Box>
                             <Box>
-                                <Typography variant='h6' fontSize={20}>27%</Typography>
+                                <Typography variant='h6' fontSize={20}>{ChartDetils.cycling.prec +"%"}</Typography>
                                 <Typography>Cycling</Typography>
                             </Box>
 
@@ -85,7 +109,7 @@ function Chart() {
                                 <SelfImprovement sx={{ color: '#c844d4' }} fontSize='large' />
                             </Box>
                             <Box>
-                                <Typography variant='h6' fontSize={20}>86%</Typography>
+                                <Typography variant='h6' fontSize={20}>{ChartDetils.yoga.prec +"%"}</Typography>
                                 <Typography>Yoga</Typography>
                             </Box>
 

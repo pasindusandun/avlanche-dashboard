@@ -3,6 +3,7 @@ import { Accordion, AccordionDetails, AccordionSummary, Divider, Drawer, Fab, Ic
 import TreeItem from '@mui/lab/TreeItem';
 import TreeView from '@mui/lab/TreeView';
 import React, { useState } from 'react'
+import AdCard from './AdCard';
 
 
 function Sidebar({ drawerWidthsm, drawerWidth, open }) {
@@ -111,7 +112,9 @@ function Sidebar({ drawerWidthsm, drawerWidth, open }) {
                 <StyleTreeItem  nodeId="22" label="Pages" icon={<Layers/>} expandIcon={<ExpandMore/>} sx={{color:expanded.includes("22")?'#6CC51D':'GrayText'}}>
                     <StyleTreeNodeItem nodeId="23" label="Calendar" />
                 </StyleTreeItem>
+                <AdCard/>
             </TreeView>
+            
             
              {/* <Accordion sx={{border:'none',borderStyle:'hidden'}}>
         <AccordionSummary
