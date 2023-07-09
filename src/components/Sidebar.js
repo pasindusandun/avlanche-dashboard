@@ -56,15 +56,13 @@ function Sidebar({ drawerWidthsm, drawerWidth, open }) {
             open={open}
         >
             <DrawerHeader sx={{ justifyContent: 'left' }} >
-                <IconButton hidden={!open}   >
-                    <Fab sx={{backgroundColor:'#6CC51D','&:hover': {
+                    <Fab hidden={!open}  sx={{backgroundColor:'#6CC51D','&:hover': {
                              backgroundColor: '#6CC51D',
                            }}} >
                     <MonitorHeartTwoTone color='#FFFFFF' />
                     </Fab>
                 
                     <Typography sx={{ ml: '6px' ,display:{xs:'none',sm:'block'}}} fontWeight="bold" color={'black'} fontSize={25} >Fito</Typography>
-                </IconButton>
                 
             </DrawerHeader>
             <Typography sx={{ display:{xs:'block',sm:'none'}}} fontWeight="bold" color={'black'} fontSize={25} align='left' paddingLeft={3}>Fito</Typography>
