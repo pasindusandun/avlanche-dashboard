@@ -11,7 +11,7 @@ const drawerWidth = 220;
 const drawerWidthsm = 120;
 function Appbar() {
 
-    const StyledBadge = styled(Badge)(({ theme }) => ({
+    const StyledBadge = styled(Badge)({
         '& .MuiBadge-badge': {
           right: 3,
           top: 19,
@@ -19,8 +19,8 @@ function Appbar() {
           color:'#FFFFFF',
           padding: '4px 4px',
         },
-      }));
-
+      });
+      
     const LightTooltip = styled(({ className, ...props }) => (
         <Tooltip {...props} classes={{ popper: className }} />
       ))(({ theme }) => ({
@@ -159,6 +159,7 @@ function Appbar() {
                     vertical: 'top',
                     horizontal: 'right',
                 }}
+                
                 sx={{
                     display:{xs: 'flex',sm:'none'}
                 }}

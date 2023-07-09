@@ -143,7 +143,7 @@ function Chart() {
 
                 </Card>
             </Grid>
-            <Circularprogrebar />
+            <Circularprogrebar/>
         </Grid>
 
     )
